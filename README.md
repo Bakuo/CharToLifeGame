@@ -1,1 +1,1 @@
-# StrToLifeGame
+# CharToLifeGame
