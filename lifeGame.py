@@ -10,9 +10,9 @@ import numpy as np
 
 SCR_RECT = Rect(0, 0, 480, 760) # screen size
 CS = 10 # cell size
-NUM_ROW = SCR_RECT.height / CS # row of field
-NUM_COL = SCR_RECT.width / CS # column of field
-DEAD, ALIVE, STAY = 0, 1, 2 # constant for live or dead
+NUM_ROW = SCR_RECT.height / CS # the number of the cell in the field's row
+NUM_COL = SCR_RECT.width / CS # the number of the cell in the field's column
+DEAD, ALIVE, STAY = 0, 1, 2 # status for live, stay or dead
 RAND_LIFE = 0.1
 
 img = np.array(Image.open('data4LifeGame/font.png').convert('L'))
@@ -171,11 +171,11 @@ class LifeGame:
             for x in range(NUM_COL):
                 if self.field[y][x] == ALIVE:
                     if(self.color[y][x] == ALIVE):
-                        pygame.draw.rect(screen, (255,255,25), Rect(x*CS,y*CS,CS,CS))
+                        pygame.draw.rect(screen, (255,255,0), Rect(x*CS,y*CS,CS,CS))
                     elif(self.color[y][x] == STAY):
-                        pygame.draw.rect(screen, (255,25,255),Rect(x*CS,y*CS,CS,CS))
+                        pygame.draw.rect(screen, (255,0,255),Rect(x*CS,y*CS,CS,CS))
                 elif self.field[y][x] == DEAD:
-                    pygame.draw.rect(screen, (25,255,255), Rect(x*CS,y*CS,CS,CS))
+                    pygame.draw.rect(screen, (0,255,255), Rect(x*CS,y*CS,CS,CS))
                 # Draw glid
                 pygame.draw.rect(screen, (150,150,150), Rect(x*CS,y*CS,CS,CS), 1)
         # Draw center line
