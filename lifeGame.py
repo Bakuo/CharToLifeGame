@@ -306,7 +306,7 @@ class MessageEngine:
             screen.blit(self.image, (x,y),
                 (rect.x+self.color,rect.y,rect.width,rect.height))
         except KeyError:
-            print "There is the character that cannot be drawn:%s" % ch
+            #print "There is the character that cannot be drawn:%s" % ch
             return
     def draw_string(self, screen, pos, string):
         """Draw a string"""
