@@ -10,7 +10,7 @@ import numpy as np
 
 SCR_RECT = Rect(0, 0, 480, 760) # screen size
 CS = 10 # cell size
-NUM_ROW = SCR_RECT.height / CS # the number of the cell in the field's row
+NUM_ROW = (SCR_RECT.height-100) / CS # the number of the cell in the field's row
 NUM_COL = SCR_RECT.width / CS # the number of the cell in the field's column
 DEAD, ALIVE, STAY = 0, 1, 2 # status for live, stay or dead
 RAND_LIFE = 0.1
@@ -23,22 +23,30 @@ class LifeGame:
         screen = pygame.display.set_mode(SCR_RECT.size)
         pygame.display.set_caption(u"Conway's Game of Life")
         self.font = pygame.font.SysFont(None, 16)
-        # Field that has size of NUM_ROW * NUM_ROL
+
+        # Field and color of its cells that has size of NUM_ROW * NUM_ROL
+        # Init with DEAD status
         self.field = [[DEAD for x in range(NUM_COL)] for y in range(NUM_ROW)]
         self.color = [[DEAD for x in range(NUM_COL)] for y in range(NUM_ROW)]
+
         self.generation = 0 # the number of generation
+
         self.time = 100
+
         self.run = False # run or not
+
         self.cursor = [NUM_COL/2, NUM_ROW/2] # the position of carsor
-        # initiate the life game
+
+        # Initiate the life game
         self.clear()
+
         # main loop
         clock = pygame.time.Clock()
         msg_engine = MessageEngine()
         input_wnd = InputWindow(Rect(0,SCR_RECT.height-100,SCR_RECT.width,100), msg_engine)
-        letter = input_wnd.ask(screen, "INPUT A LETTER")
+        letter = input_wnd.ask(screen, "INPUT A LETTER!")
         while(len(letter) != 1):
-            letter = input_wnd.ask(screen, "INPUT A LETTER")
+            letter = input_wnd.ask(screen, "INPUT A LETTER!")
 
         input_wnd.draw(screen, "GOOD TO SEE YA! " + letter) 
 
@@ -167,7 +175,7 @@ class LifeGame:
     def draw(self, screen):
         """Draw the field"""
         # Paint cells
-        for y in range(NUM_ROW-10):
+        for y in range(NUM_ROW):
             for x in range(NUM_COL):
                 if self.field[y][x] == ALIVE:
                     if(self.color[y][x] == ALIVE):
