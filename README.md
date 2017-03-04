@@ -5,7 +5,7 @@ Conway's game of life that you can start with the pixelated characters
 
     python lifeGame.py
 
- Then a window pop up.
+ Then a window pops up.
 
  Input an alphabet you love. Enter.
 
