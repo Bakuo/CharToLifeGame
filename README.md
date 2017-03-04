@@ -3,7 +3,7 @@ Conway's game of life that you can start with the pixelated characters
 
 ## How to use
 
-  python lifeGame.py
+  'python lifeGame.py'
 
  Then a window pop up.
 
