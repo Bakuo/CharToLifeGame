@@ -2,6 +2,7 @@
 Conway's game of life that you can start with the pixelated characters
 
 ## How to use
+
   python lifeGame.py
 
  Then a window pop up.
@@ -9,11 +10,12 @@ Conway's game of life that you can start with the pixelated characters
  Input an alphabet you love. Enter.
 
 ### Command
- Enter "n" to take one step for next generation.
 
- Enter "s" to start and stop. (Take one step every 0.1 sec.)
+ "n" to take one step for next generation.
 
- Enter "r" to give cells birth randomly.
+ "s" to start and stop. (Take one step every 0.1 sec.)
+
+ "r" to give cells birth randomly.
 
  Also you can move a cursor with clicks and arrow keys
 
